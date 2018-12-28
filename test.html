@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="javascript">
+
+</script>
+</head>
+
+<style type="text/css">
+
+.przycisk:hover
+{
+	cursor: pointer;
+}
+
+.przycisk
+{
+	font-size: 25px;
+	padding: 5px;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?20m5d9');
+  src:  url('fonts/icomoon.eot?20m5d9#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?20m5d9') format('truetype'),
+    url('fonts/icomoon.woff?20m5d9') format('woff'),
+    url('fonts/icomoon.svg?20m5d9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pause:before {
+  content: "\e900";
+}
+.icon-play-button:before {
+  content: "\e901";
+}
+.icon-stop:before {
+  content: "\e902";
+}
+
+.icon-pause:hover::before {
+	color: blue;
+  
+}
+.icon-play-button:hover::before {
+	color: blue;
+}
+.icon-stop:hover::before {
+	color: blue;
+}
+
+
+</style>
+
+<script type="text/javascript">
+	function Graj()
+	{
+		if(!document.getElementById('player').paused)
+		{
+			document.getElementById('play').innerHTML = "<span class='icon-play-button'></span>";
+			document.getElementById('player').pause();
+		}
+		else
+		{
+			document.getElementById('play').innerHTML = "<span class='icon-pause'></span>";
+			document.getElementById('player').play();
+		}
+	}
+	
+	function Stop()
+	{
+		document.getElementById('player').currentTime=0;
+		document.getElementById('player').pause();
+		document.getElementById('play').innerHTML = "<span class='icon-play-button'></span>";
+	}
+</script>
+
+<body>
+
+	<audio id="player" src="test.mp3"></audio>
+	<div>
+		<div id="play" class="przycisk" onclick="Graj()" style="float:left;"><span class="icon-play-button"></span></div>
+		<div id="stop" class="przycisk" onclick="Stop()" style="float:left;"><span class="icon-stop"></span></div>
+		<div style="clear:both;"></div>
+	</div> 
+
+</body>
+</html>
